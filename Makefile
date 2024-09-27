@@ -10,7 +10,7 @@ RM = rm -rf
 
 # Sources files and object linked
 EXEC = libasm
-ASM_SOURCES = ft_strlen.s ft_strcpy.s
+ASM_SOURCES = ft_strlen.s ft_strcpy.s ft_strcmp.s ft_write.s
 C_SOURCES = main.c
 OBJ_FILES = $(ASM_SOURCES:.s=.o) $(C_SOURCES:.c=.o)
 
