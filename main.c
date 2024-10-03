@@ -12,6 +12,7 @@ extern char *ft_strcpy(char *restrict dst, const char *restrict src);
 int ft_strcmp(const char *s1, const char *s2);
 ssize_t ft_write(int fd, const void *buf, size_t count);
 ssize_t ft_read(int fd, const void *buf, size_t count);
+char *ft_strdup(const char *s);
 
 int main(int argc, char **argv)
 {
@@ -27,12 +28,12 @@ int main(int argc, char **argv)
 
 
 		printf("-------------------- Test for ft_strcpy --------------------\n");
-		printf("Native function : %s\n", str_two);
+		printf("Native function :\n");
 		char *test = strcpy(str_two, argv[1]);
-		printf("Retour de la native function: %s\n", test);
-		printf("LIBASM function : %s\n", str_one);
+		printf("Retour de la native function: %s\nResultat chaine str_two %s\n", test, str_two);
+		printf("LIBASM function :\n");
 		char *test_one = ft_strcpy(str_one, argv[1]);
-		printf("Retour de la LIBASM function: %s\n", test_one);
+		printf("Retour de la LIBASM function: %s\nResultat chaine str_two %s\n", test_one, str_one);
 		printf("------------------------------------------------------------\n\n\n\n\n\n\n");
 
 
@@ -115,6 +116,17 @@ int main(int argc, char **argv)
 			count_one++;
 		}
 		printf("\n");
+		printf("------------------------------------------------------------\n\n\n\n\n\n\n");
+
+
+
+		printf("-------------------- Test for ft_strdup --------------------\n");
+		printf("Native function :\n");
+		char *test_two = strdup(argv[1]);
+		printf("Retour de la native function: %s\n", test_two);
+		printf("LIBASM function :\n");
+		char *test_three = ft_strdup(argv[1]);
+		printf("Retour de la LIBASM function: %s\n",test_three);
 		printf("------------------------------------------------------------\n\n\n\n\n\n\n");
 	}
 	else

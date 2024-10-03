@@ -3,17 +3,15 @@ section .text
 
 ft_strcpy:
 	xor rcx, rcx
+	xor rax, rax
 	.loop:
-		mov bl, [rsi]
-		mov [rdi], bl
+		mov bl, [rsi + rcx]
+		mov [rdi + rcx], bl
 		test bl, bl
 		jz .end
-		inc rsi
-		inc rdi
 		inc rcx
 		jmp .loop
 	
 	.end:
-		mov BYTE [rdi + rcx], 0
 		mov rax, rdi
 		ret
